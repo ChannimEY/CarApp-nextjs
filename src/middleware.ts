@@ -1,20 +1,33 @@
-import { NextRequest, NextResponse } from "next/server";
+// middleware.ts
+import { NextResponse } from 'next/server'
+import type { NextRequest } from 'next/server'
 
-export default function middleware(req: NextRequest){
-    console.log("==========Middleware is Running========");
-    console.log("==> Next Respone URL", req.url);
-    console.log("==> Next Response Body", req.body);
+const botUserAgents = [
+  /facebookexternalhit/i,
+  /Twitterbot/i,
+  /Slackbot-LinkExpanding/i,
+  /Discordbot/i,
+  /WhatsApp/i,
+  /TelegramBot/i,
+  /LinkedInBot/i,
+]
 
-    const isLoggin = false;
+export default function middleware(req: NextRequest) {
+  const userAgent = req.headers.get('user-agent') || ''
 
-    if(!isLoggin && req.nextUrl.pathname.startsWith('/dashboard')){
-        // return NextResponse.redirect(new URL('/login',req.url))
-    }
-    return NextResponse.next();
+  const isBot = botUserAgents.some((botRegex) => botRegex.test(userAgent))
 
+  if (isBot && req.nextUrl.pathname.startsWith('/product')) {
+    const response = NextResponse.next()
+    response.headers.set('x-middleware-cache', 'no-cache')
+    console.log("🤖 Bot detected — forcing dynamic SSR for", req.url)
+    return response
+  }
+
+  return NextResponse.next()
 }
 
 // config matcher
-export const config={
-     matcher: ['/dashboard/:path* ']
+export const config = {
+  matcher: ['/product/:path*', '/dashboard/:path*'],
 }

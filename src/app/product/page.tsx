@@ -3,6 +3,7 @@ import DisplayProductComponent from '@/components/products/DisplayProductCompone
 import FetchCar from '@/lib/api'
 import { CarData } from '@/lib/car-type'
 import React from 'react'
+export const dynamic = 'force-dynamic'
 import { Metadata } from "next";
 export async function generateMetadata(): Promise<Metadata> {
   return {
