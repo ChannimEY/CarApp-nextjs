@@ -3,29 +3,27 @@ import DisplayProductComponent from '@/components/products/DisplayProductCompone
 import FetchCar from '@/lib/api'
 import { CarData } from '@/lib/car-type'
 import React from 'react'
-export const dynamic = 'force-dynamic'
 import { Metadata } from "next";
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: {
-      template: '%s | Car Selling',
-      default: 'Product Page',
-    },
-    openGraph: {
-      title: 'Products page',
-      description: 'This is the Product page',
-      images: [
-        {
-          url: 'https://leasecar.uk/images/main/cars/2/2/102123/corsa-front.jpeg',
-          width: 800,
-          height: 650,
-          alt: 'Car',
-          type: 'image/png',
-        },
-      ],
-    },
-  };
-}
+export const metadata: Metadata = {
+
+   title:{
+      template:'%s | This is Product page',
+      default: "Product Page"
+   },
+  openGraph:{
+    title:'Products page',
+    description:'Product page',
+    images:[
+     {
+      url:'https://i.pinimg.com/736x/3f/1d/f7/3f1df704b622db4f4cd458c4bc3e6a3c.jpg',
+      width: 800,
+      height: 650,
+      alt: "Car",
+      type: 'image/png'
+     }
+    ]
+  }
+};
 const ProductPage = async () => {
   const  data:CarData[] = await FetchCar(0,5)
   console.log(data)
