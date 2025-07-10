@@ -35,8 +35,8 @@ const NavbarComponent = ({
 
     },
     {
-      title: "Pricing",
-      url: "#",
+      title: "About",
+      url: "/about",
     },
     {
       title: "Blog",

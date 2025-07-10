@@ -1,46 +1,32 @@
 
-// "use client"
-// import BlogComponent from "@/components/BlogComponent";
-// import { BlogType } from "@/lib/blog";
+import type { Metadata } from "next";
+import React from "react";
 
-
-import { Metadata } from "next";
-// import Link from "next/link";
-// import { use } from "react";
-
-// const BASE_URL = "https://jsonplaceholder.typicode.com/posts";
-// fetchData
-// async function fetchData(){
-//     await new Promise(resolve => setTimeout(resolve,3000));
-//     const res = await fetch(BASE_URL);
-//     const dataRes = res.json();
-//     return dataRes;
-// }
-
-export const metadata:Metadata ={
-    title:"Blog",
-    description:"this is blog page"
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Blog Page",
+    description: "Explore all blog posts about car selling and trends.",
+    openGraph: {
+      title: "Blog Page | Car Selling",
+      description: "Explore all blog posts about car selling and trends.",
+      images: [
+        {
+          url: 'https://leasecar.uk/images/main/cars/2/2/102123/corsa-front.jpeg',
+          width: 800,
+          height: 600,
+          alt: "Blog Car Image",
+          type: 'image/png',
+        }
+      ]
+    }
+  };
 }
 
 
-
-export default async function BlogPage(){
-   
-    // const res = await fetch(BASE_URL);
-    // const dataRes:BlogType[] = await res.json();
-    
-    return (
-     <div className="container grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
-        
-        {/* {
-        dataRes.map((post)=>(
-            <Link href={`/blog/${post.id} `} key={post.id}>
-            <BlogComponent key={post.id} id={post.id} userId={post.userId} title={post.title} body={post.body}/>
-            </Link>
-        ))
-     } */}
-     blog
-     </div>
-      
-    )
+export default async function BlogPage() {
+  return (
+    <div className="container grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      blog
+    </div>
+  );
 }

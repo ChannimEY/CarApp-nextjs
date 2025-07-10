@@ -1,36 +1,34 @@
-// import { AuthRequiredError } from "@/lib/exception";
-
+import type { Metadata } from "next";
 import { CarouselDApiDemo } from "@/components/(landing)/carousel/CarouselComponent";
 import { MarqueeDemo } from "@/components/(landing)/testimonial/TestimonialComponent";
 import { HeroVideoDialogDemo } from "@/components/(landing)/VideoComponent/VideoComponent";
-// import { LinkComponent } from "@/components/ProfileComponent/ProfileComponent";
 
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Home",
+    description: "Welcome to the best car selling platform!",
+    openGraph: {
+      title: "Home | Car Selling",
+      description: "Explore top cars and services on our homepage.",
+      images: [
+        {
+          url: "https://northfleet.in/wp-content/uploads/2024/10/Types-of-Cars-in-India.webp",
+          width: 800,
+          height: 600,
+          alt: "Car selling platform",
+        }
+      ],
+    },
+  };
+}
 
 export default function Home() {
-
-  // const session = null;
-
-  // if(!session) throw new AuthRequiredError();
-
-  return(
+  return (
     <div>
-       <CarouselDApiDemo/>
-       {/* testimonial */}
-       <MarqueeDemo/>
-       {/* video  */}
-       <HeroVideoDialogDemo/>
-
-       {/* <Link href="/todo">Navigate to Todo</Link> */}
-{/* 
-       <button className="bg-red-500 border p-4">
-        Click to navigate Todo
-        <Link href="/todo" prefetch={false}>Navigate to Todo</Link>
-       </button> */}
-       
-       
+      <CarouselDApiDemo />
+      <MarqueeDemo />
+      <HeroVideoDialogDemo />
     </div>
-   
-    
-  )
- 
+  );
 }
