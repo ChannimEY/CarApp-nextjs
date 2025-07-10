@@ -7,15 +7,15 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
 
    title:{
-      template:'%s | This is Product page',
+      template:'%s | Car Selling',
       default: "Product Page"
    },
   openGraph:{
     title:'Products page',
-    description:'Product page',
+    description:'This is the Product page',
     images:[
      {
-      url:'https://i.pinimg.com/736x/3f/1d/f7/3f1df704b622db4f4cd458c4bc3e6a3c.jpg',
+      url:'https://static.toiimg.com/photo/80387978.cms',
       width: 800,
       height: 650,
       alt: "Car",

@@ -1,29 +1,29 @@
-
 import React from 'react'
-import type { Metadata } from "next";
+import { Metadata } from "next";
+export const metadata: Metadata = {
 
-
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: "About Page",
-    openGraph: {
-      title: "About Page | Car Seller",
-      description: "This is the About page for our car selling platform.",
-      images: [
-        {
-          url: 'https://www.carpro.com/hubfs/2023-Chevrolet-Corvette-Z06-credit-chevrolet.jpeg',
-          width: 800,
-          height: 650,
-          alt: "Car",
-          type: 'image/png'
-        }
-      ]
-    }
-  };
-}
-
-export default function AboutPage() {
+   title:{
+      template:'%s |Car Selling',
+      default: "About Page"
+   },
+  openGraph:{
+    title:'About page',
+    description:'This is About page',
+    images:[
+     {
+      url:'https://media.architecturaldigest.com/photos/66a914f1a958d12e0cc94a8e/16:9/w_2992,h_1683,c_limit/DSC_5903.jpg',
+      width: 800,
+      height: 650,
+      alt: "Car",
+      type: 'image/png'
+     }
+    ]
+  }
+};
+function page() {
   return (
     <div>About Page</div>
   )
 }
+
+export default page
