@@ -1,38 +1,49 @@
 
-import DisplayProductComponent from '@/components/products/DisplayProductComponent'
-import FetchCar from '@/lib/api'
-import { CarData } from '@/lib/car-type'
-import React from 'react'
-import { Metadata } from "next";
-export const metadata: Metadata = {
+import DisplayProductComponent from '@/components/products/DisplayProductComponent';
+import FetchCar from '@/lib/api';
+import { CarData } from '@/lib/car-type';
+import type { Metadata } from "next";
+import React from 'react';
 
-   title:{
-      template:'%s | Car Selling',
-      default: "Product Page"
-   },
-  openGraph:{
-    title:'Products page',
-    description:'This is the Product page',
-    images:[
-     {
-      url:'https://static.toiimg.com/photo/80387978.cms',
-      width: 800,
-      height: 650,
-      alt: "Car",
-      type: 'image/png'
-     }
-    ]
-  }
-};
-const ProductPage = async () => {
-  const  data:CarData[] = await FetchCar(0,5)
-  console.log(data)
-  return (
-    <div>
-      {/* <SWRComponent/> */}
-      <DisplayProductComponent tagline={'Latest Updates'} heading={'New Comming'} description={'Discover the latest trends, tips, and best practices in modern web development. From UI components to design systems, stay updated with our expert insights.'} buttonText={'View all cars'} buttonUrl={''} posts={data}/>
-    </div>
-  )
+export const dynamic = 'force-dynamic';
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: {
+      template: '%s | Car Selling',
+      default: 'Product Page',
+    },
+    openGraph: {
+      title: 'Products page',
+      description: 'This is the Product page',
+      images: [
+        {
+          url: 'https://static.toiimg.com/photo/80387978.cms',
+          width: 800,
+          height: 650,
+          alt: 'Car',
+          type: 'image/png',
+        },
+      ],
+    },
+  };
 }
 
-export default ProductPage
+const ProductPage = async () => {
+  const data: CarData[] = await FetchCar(0, 5);
+
+  return (
+    <div>
+      <DisplayProductComponent
+        tagline="Latest Updates"
+        heading="New Coming"
+        description="Discover the latest trends, tips, and best practices in modern web development. From UI components to design systems, stay updated with our expert insights."
+        buttonText="View all cars"
+        buttonUrl=""
+        posts={data}
+      />
+    </div>
+  );
+};
+
+export default ProductPage;

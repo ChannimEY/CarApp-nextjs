@@ -4,6 +4,32 @@
 // import { BlogType } from "@/lib/blog";
 
 
+export const dynamic = 'force-dynamic';
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: {
+      template: '%s | Car Selling',
+      default: 'Blog Page',
+    },
+    openGraph: {
+      title: 'Blog page',
+      description: 'This is Blog page',
+      images: [
+        {
+          url: 'https://www.carscoops.com/wp-content/uploads/2020/05/bugatti-chiron-pur-sport-0-1.jpg',
+          width: 800,
+          height: 650,
+          alt: 'Car',
+          type: 'image/png',
+        },
+      ],
+    },
+  };
+}
+
+
+
 import { Metadata } from "next";
 // import Link from "next/link";
 // import { use } from "react";

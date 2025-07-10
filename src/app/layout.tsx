@@ -8,28 +8,29 @@ import React from "react";
 
 import { NavbarComponent } from "@/components/(landing)/nav/NavbarComponent";
 
-export const metadata: Metadata = {
+export const dynamic = 'force-dynamic';
 
-   title:{
-      template:'%s | Car Selling',
-      default: "HomePage"
-      
-   },
-  openGraph:{
-    title:'Car Selling',
-    description:'This is homepage of car selling',
-    images:[
-     {
-      url:'https://northfleet.in/wp-content/uploads/2024/10/Types-of-Cars-in-India.webp',
-      width: 800,
-      height: 600,
-      alt: "Car selling platform",
-      type: 'image/png'
-     }
-    ]
-  }
-};
-
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: {
+      template: '%s | Car Selling',
+      default: 'HomePage',
+    },
+    openGraph: {
+      title: 'Car Selling',
+      description: 'This is homepage of car selling',
+      images: [
+        {
+          url: 'https://northfleet.in/wp-content/uploads/2024/10/Types-of-Cars-in-India.webp',
+          width: 800,
+          height: 600,
+          alt: 'Car selling platform',
+          type: 'image/png',
+        },
+      ],
+    },
+  };
+}
 
 
 const kantumruy_font = localfont({
