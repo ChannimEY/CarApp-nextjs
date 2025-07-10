@@ -19,6 +19,30 @@ interface Blog7Props {
   buttonUrl: string;
   posts: CarData[]
 }
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: {
+    default: 'Our Cars',
+    template: '%s | Car Selling'
+  },
+  description: 'Browse our latest luxury cars with premium features and deals.',
+  keywords: ['car', 'luxury', 'buy cars', 'modern vehicles', 'expensive cars'],
+  openGraph: {
+    title: 'Explore Our Cars | Car Selling',
+    description: 'Discover the latest cars with modern designs and great deals.',
+    images: [
+      {
+        url: 'https://media.cdn-jaguarlandrover.com/api/v2/images/55880/w/680.jpg',
+        width: 800,
+        height: 600,
+        alt: 'Luxury Car Showcase',
+        type: 'image/png'
+      }
+    ],
+    type: 'website'
+  }
+};
 
 export default function DisplayProductComponent({
   tagline = "Latest Updates",
@@ -50,7 +74,7 @@ export default function DisplayProductComponent({
         </div>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
              {posts.map((post) => (
-              
+
             <Card
               key={post.id}
               className="grid grid-rows-[auto_auto_1fr_auto] pt-0"
@@ -91,11 +115,10 @@ export default function DisplayProductComponent({
                 </a>
               </CardFooter>
             </Card>
-           
+
           ))}
         </div>
       </div>
     </section>
   );
 };
-

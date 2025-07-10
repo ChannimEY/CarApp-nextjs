@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import localfont from 'next/font/local' 
+import localfont from 'next/font/local'
 // import ButtonComponent from "@/components/ButtonComponent";
 // import { NavbarComponent } from "@/components/(landing)/nav/NavbarComponent";
 import { FooterComponent } from "@/components/(landing)/nav/FooterComponent";
@@ -9,21 +9,18 @@ import React from "react";
 import { NavbarComponent } from "@/components/(landing)/nav/NavbarComponent";
 
 export const metadata: Metadata = {
-  // title: "Car Selling",
-  // description: "This is homepage of car selling",
-  // keywords:['car','discount','modern','luxeries','expensive'],
-  // authors:[{'name':'FullStack Students'}],
-  // applicationName:'Car Selling',
+
    title:{
       template:'%s | Car Selling',
       default: "HomePage"
+      
    },
   openGraph:{
     title:'Car Selling',
     description:'This is homepage of car selling',
     images:[
      {
-      url:'https://car-nextjs-api.cheatdev.online/uploads/370f0d4c-3fad-441a-bd28-31291c30fd38.png',
+      url:'https://northfleet.in/wp-content/uploads/2024/10/Types-of-Cars-in-India.webp',
       width: 800,
       height: 600,
       alt: "Car selling platform",
@@ -34,7 +31,7 @@ export const metadata: Metadata = {
 };
 
 
-// kantumruy_font 
+
 const kantumruy_font = localfont({
   src: '../../public/fonts/KantumruyPro-SemiBold.ttf',
   variable: '--font-kantumruy',
@@ -63,7 +60,7 @@ export default function RootLayout({
       <body
       >
         <NavbarComponent/>
-        
+
         {children}
         {modal}
         {/* <h1 lang="km">សួស្តី</h1> */}
